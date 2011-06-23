@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		01113DDF13B3CFEB00A7CF8E /* avcC in CopyFiles */ = {isa = PBXBuildFile; fileRef = 01113DDC13B3CFCD00A7CF8E /* avcC */; };
+		01113DE113B3E29800A7CF8E /* subler_avcC in CopyFiles */ = {isa = PBXBuildFile; fileRef = 01113DE013B3E22C00A7CF8E /* subler_avcC */; };
 		0183448013B384A8001ECD5A /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0183447F13B384A8001ECD5A /* main.cpp */; };
 		0183448213B384A8001ECD5A /* VDADecoderChecker.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0183448113B384A8001ECD5A /* VDADecoderChecker.1 */; };
 		0183448A13B3875E001ECD5A /* VideoDecodeAcceleration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0183448813B3874B001ECD5A /* VideoDecodeAcceleration.framework */; };
@@ -23,6 +24,7 @@
 			dstSubfolderSpec = 16;
 			files = (
 				01113DDF13B3CFEB00A7CF8E /* avcC in CopyFiles */,
+				01113DE113B3E29800A7CF8E /* subler_avcC in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -39,7 +41,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		01113DDC13B3CFCD00A7CF8E /* avcC */ = {isa = PBXFileReference; lastKnownFileType = file; path = avcC; sourceTree = "<group>"; };
+		01113DDC13B3CFCD00A7CF8E /* avcC */ = {isa = PBXFileReference; explicitFileType = compiled; path = avcC; sourceTree = "<group>"; };
+		01113DE013B3E22C00A7CF8E /* subler_avcC */ = {isa = PBXFileReference; lastKnownFileType = file; path = subler_avcC; sourceTree = "<group>"; };
 		0183447B13B384A8001ECD5A /* VDADecoderChecker */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = VDADecoderChecker; sourceTree = BUILT_PRODUCTS_DIR; };
 		0183447F13B384A8001ECD5A /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		0183448113B384A8001ECD5A /* VDADecoderChecker.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = VDADecoderChecker.1; sourceTree = "<group>"; };
@@ -87,6 +90,7 @@
 				0183447F13B384A8001ECD5A /* main.cpp */,
 				0183448113B384A8001ECD5A /* VDADecoderChecker.1 */,
 				01113DDC13B3CFCD00A7CF8E /* avcC */,
+				01113DE013B3E22C00A7CF8E /* subler_avcC */,
 			);
 			path = VDADecoderChecker;
 			sourceTree = "<group>";

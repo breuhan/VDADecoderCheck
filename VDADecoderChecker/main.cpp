@@ -32,7 +32,7 @@ int main (int argc, const char * argv[])
     
     ifstream::pos_type size;
     UInt8 *data;
-    ifstream file ("avcC", ios::in|ios::binary|ios::ate);
+    ifstream file ("subler_avcC", ios::in|ios::binary|ios::ate);
     if (file.is_open())
     {
         size = file.tellg();

@@ -1,0 +1,207 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0183448013B384A8001ECD5A /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0183447F13B384A8001ECD5A /* main.cpp */; };
+		0183448213B384A8001ECD5A /* VDADecoderChecker.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0183448113B384A8001ECD5A /* VDADecoderChecker.1 */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		0183447913B384A8001ECD5A /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+				0183448213B384A8001ECD5A /* VDADecoderChecker.1 in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		0183447B13B384A8001ECD5A /* VDADecoderChecker */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = VDADecoderChecker; sourceTree = BUILT_PRODUCTS_DIR; };
+		0183447F13B384A8001ECD5A /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		0183448113B384A8001ECD5A /* VDADecoderChecker.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = VDADecoderChecker.1; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0183447813B384A8001ECD5A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0183447013B384A8001ECD5A = {
+			isa = PBXGroup;
+			children = (
+				0183447E13B384A8001ECD5A /* VDADecoderChecker */,
+				0183447C13B384A8001ECD5A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		0183447C13B384A8001ECD5A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0183447B13B384A8001ECD5A /* VDADecoderChecker */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0183447E13B384A8001ECD5A /* VDADecoderChecker */ = {
+			isa = PBXGroup;
+			children = (
+				0183447F13B384A8001ECD5A /* main.cpp */,
+				0183448113B384A8001ECD5A /* VDADecoderChecker.1 */,
+			);
+			path = VDADecoderChecker;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0183447A13B384A8001ECD5A /* VDADecoderChecker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0183448513B384A8001ECD5A /* Build configuration list for PBXNativeTarget "VDADecoderChecker" */;
+			buildPhases = (
+				0183447713B384A8001ECD5A /* Sources */,
+				0183447813B384A8001ECD5A /* Frameworks */,
+				0183447913B384A8001ECD5A /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VDADecoderChecker;
+			productName = VDADecoderChecker;
+			productReference = 0183447B13B384A8001ECD5A /* VDADecoderChecker */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0183447213B384A8001ECD5A /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 0183447513B384A8001ECD5A /* Build configuration list for PBXProject "VDADecoderChecker" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 0183447013B384A8001ECD5A;
+			productRefGroup = 0183447C13B384A8001ECD5A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0183447A13B384A8001ECD5A /* VDADecoderChecker */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0183447713B384A8001ECD5A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0183448013B384A8001ECD5A /* main.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		0183448313B384A8001ECD5A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		0183448413B384A8001ECD5A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		0183448613B384A8001ECD5A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		0183448713B384A8001ECD5A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0183447513B384A8001ECD5A /* Build configuration list for PBXProject "VDADecoderChecker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0183448313B384A8001ECD5A /* Debug */,
+				0183448413B384A8001ECD5A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0183448513B384A8001ECD5A /* Build configuration list for PBXNativeTarget "VDADecoderChecker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0183448613B384A8001ECD5A /* Debug */,
+				0183448713B384A8001ECD5A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0183447213B384A8001ECD5A /* Project object */;
+}

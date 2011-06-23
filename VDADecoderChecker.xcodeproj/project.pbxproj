@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		0183448013B384A8001ECD5A /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0183447F13B384A8001ECD5A /* main.cpp */; };
 		0183448213B384A8001ECD5A /* VDADecoderChecker.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0183448113B384A8001ECD5A /* VDADecoderChecker.1 */; };
+		0183448A13B3875E001ECD5A /* VideoDecodeAcceleration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0183448813B3874B001ECD5A /* VideoDecodeAcceleration.framework */; };
+		0183448C13B387C3001ECD5A /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0183448B13B387C3001ECD5A /* CoreFoundation.framework */; };
+		0183448E13B387C9001ECD5A /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0183448D13B387C9001ECD5A /* CoreVideo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +31,9 @@
 		0183447B13B384A8001ECD5A /* VDADecoderChecker */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = VDADecoderChecker; sourceTree = BUILT_PRODUCTS_DIR; };
 		0183447F13B384A8001ECD5A /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		0183448113B384A8001ECD5A /* VDADecoderChecker.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = VDADecoderChecker.1; sourceTree = "<group>"; };
+		0183448813B3874B001ECD5A /* VideoDecodeAcceleration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoDecodeAcceleration.framework; path = System/Library/Frameworks/VideoDecodeAcceleration.framework; sourceTree = SDKROOT; };
+		0183448B13B387C3001ECD5A /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		0183448D13B387C9001ECD5A /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +41,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0183448E13B387C9001ECD5A /* CoreVideo.framework in Frameworks */,
+				0183448C13B387C3001ECD5A /* CoreFoundation.framework in Frameworks */,
+				0183448A13B3875E001ECD5A /* VideoDecodeAcceleration.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +53,9 @@
 		0183447013B384A8001ECD5A = {
 			isa = PBXGroup;
 			children = (
+				0183448D13B387C9001ECD5A /* CoreVideo.framework */,
+				0183448B13B387C3001ECD5A /* CoreFoundation.framework */,
+				0183448813B3874B001ECD5A /* VideoDecodeAcceleration.framework */,
 				0183447E13B384A8001ECD5A /* VDADecoderChecker */,
 				0183447C13B384A8001ECD5A /* Products */,
 			);

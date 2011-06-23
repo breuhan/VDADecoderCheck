@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		01113DDF13B3CFEB00A7CF8E /* avcC in CopyFiles */ = {isa = PBXBuildFile; fileRef = 01113DDC13B3CFCD00A7CF8E /* avcC */; };
 		0183448013B384A8001ECD5A /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0183447F13B384A8001ECD5A /* main.cpp */; };
 		0183448213B384A8001ECD5A /* VDADecoderChecker.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0183448113B384A8001ECD5A /* VDADecoderChecker.1 */; };
 		0183448A13B3875E001ECD5A /* VideoDecodeAcceleration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0183448813B3874B001ECD5A /* VideoDecodeAcceleration.framework */; };
@@ -15,6 +16,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		01113DDE13B3CFE200A7CF8E /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+				01113DDF13B3CFEB00A7CF8E /* avcC in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0183447913B384A8001ECD5A /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -28,6 +39,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		01113DDC13B3CFCD00A7CF8E /* avcC */ = {isa = PBXFileReference; lastKnownFileType = file; path = avcC; sourceTree = "<group>"; };
 		0183447B13B384A8001ECD5A /* VDADecoderChecker */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = VDADecoderChecker; sourceTree = BUILT_PRODUCTS_DIR; };
 		0183447F13B384A8001ECD5A /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		0183448113B384A8001ECD5A /* VDADecoderChecker.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = VDADecoderChecker.1; sourceTree = "<group>"; };
@@ -74,6 +86,7 @@
 			children = (
 				0183447F13B384A8001ECD5A /* main.cpp */,
 				0183448113B384A8001ECD5A /* VDADecoderChecker.1 */,
+				01113DDC13B3CFCD00A7CF8E /* avcC */,
 			);
 			path = VDADecoderChecker;
 			sourceTree = "<group>";
@@ -88,6 +101,7 @@
 				0183447713B384A8001ECD5A /* Sources */,
 				0183447813B384A8001ECD5A /* Frameworks */,
 				0183447913B384A8001ECD5A /* CopyFiles */,
+				01113DDE13B3CFE200A7CF8E /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -212,6 +226,7 @@
 				0183448713B384A8001ECD5A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

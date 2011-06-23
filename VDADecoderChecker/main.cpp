@@ -32,7 +32,7 @@ int main (int argc, const char * argv[])
     
     ifstream::pos_type size;
     UInt8 *data;
-    ifstream file ("example.bin", ios::in|ios::binary|ios::ate);
+    ifstream file ("avcC", ios::in|ios::binary|ios::ate);
     if (file.is_open())
     {
         size = file.tellg();
@@ -41,7 +41,7 @@ int main (int argc, const char * argv[])
         file.read ((char*) data, size);
         file.close();
         
-        cout << "the complete file content is in memory\n";
+        cout << "Read " << size << " bytes\n";
     }
     else cout << "Unable to open file";
     
@@ -53,7 +53,7 @@ int main (int argc, const char * argv[])
     
     inSourceFormat='avc1';
     inHeight = 1920;
-    inWidth = 1080;
+    inWidth = 1056;
     
     CFMutableDictionaryRef decoderConfiguration = NULL;
     CFNumberRef height = NULL;

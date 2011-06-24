@@ -53,7 +53,7 @@ int main (int argc, const char * argv[])
     
     inSourceFormat='avc1';
     inHeight = 1920;
-    inWidth = 1056;
+    inWidth = 1080;
     
     CFMutableDictionaryRef decoderConfiguration = NULL;
     CFNumberRef height = NULL;
@@ -61,7 +61,7 @@ int main (int argc, const char * argv[])
     CFNumberRef sourceFormat = NULL;
 
     
-    inAVCCData = CFDataCreate(kCFAllocatorDefault, (UInt8*) data, size);
+    inAVCCData = CFDataCreate(kCFAllocatorDefault, (const uint8_t*) data, (int)size);
     
 
     // create a CFDictionary describing the source material for decoder configuration
@@ -90,7 +90,7 @@ int main (int argc, const char * argv[])
     std::cout << status;
     
     if (decoderConfiguration) CFRelease(decoderConfiguration);
-
+    if(decoderOut!=NULL) VDADecoderDestroy(*decoderOut);
     return 0;
 }
 

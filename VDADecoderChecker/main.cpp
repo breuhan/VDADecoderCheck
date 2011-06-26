@@ -12,18 +12,9 @@ using namespace std;
 #include <CoreFoundation/CoreFoundation.h>
 #include <CoreVideo/CoreVideo.h>
 #include <VideoDecodeAcceleration/VDADecoder.h>
-typedef void (*VDADecoderOutputCallback)(void             *decompressionOutputRefCon,
-                                         CFDictionaryRef  frameInfo,
-                                         OSStatus         status,
-                                         uint32_t         infoFlags,
-                                         CVImageBufferRef imageBuffer);
 
 
-void myDecoderOutputCallback(void               *decompressionOutputRefCon,
-                             CFDictionaryRef    frameInfo,
-                             OSStatus           status, 
-                             uint32_t           infoFlags,
-                             CVImageBufferRef   imageBuffer);
+void myDecoderOutputCallback();
 
 
 int main (int argc, const char * argv[])
@@ -46,14 +37,12 @@ int main (int argc, const char * argv[])
     else cout << "Unable to open file";
     
     OSStatus status;
-    OSType inSourceFormat;
-    SInt32 inHeight,inWidth;
     CFDataRef inAVCCData;
-    VDADecoder *decoderOut;
+    VDADecoder decoderOut = NULL;
     
-    inSourceFormat='avc1';
-    inHeight = 1920;
-    inWidth = 1080;
+    OSType inSourceFormat='avc1';
+    int inHeight = 1920;
+    int inWidth = 1080;
     
     CFMutableDictionaryRef decoderConfiguration = NULL;
     CFNumberRef height = NULL;
@@ -82,23 +71,38 @@ int main (int argc, const char * argv[])
 
 
     
-    status = VDADecoderCreate(decoderConfiguration,NULL, (VDADecoderOutputCallback*) myDecoderOutputCallback, NULL, decoderOut);
+    status = VDADecoderCreate(decoderConfiguration,NULL, (VDADecoderOutputCallback*) myDecoderOutputCallback, NULL, &decoderOut);
     if (kVDADecoderNoErr != status) {
         fprintf(stderr, "VDADecoderCreate failed. err: %d\n", status);
     }
-    
-    std::cout << status;
+    switch (status) {
+        case kVDADecoderNoErr:
+            std::cout << "Hardware acceleration full supported" << "\n";
+            break;
+        case kVDADecoderHardwareNotSupportedErr:
+            std::cout << "The hardware does not support accelerated video services required for hardware decode." << "\n";
+            break;
+        case kVDADecoderConfigurationError:
+            std::cout << "Invalid or unsupported configuration parameters were specified in VDADecoderCreate." << "\n";
+            break;
+        case kVDADecoderDecoderFailedErr:
+            std::cout << "An error was returned by the decoder layer. This may happen for example because of bitstream/data errors during a decode operation. This error may also be returned from VDADecoderCreate when hardware decoder resources are available on the system but currently in use by another process." << "\n";
+            break;
+        case -50:
+            std::cout << "Parameter error" << "\n";
+            break;
+            
+        default:
+            std::cout << "Unknown Status: " << status;
+            break;
+    }
     
     if (decoderConfiguration) CFRelease(decoderConfiguration);
-    if(decoderOut!=NULL) VDADecoderDestroy(*decoderOut);
+    //if(decoderOut!=NULL) VDADecoderDestroy(*decoderOut);
     return 0;
 }
 
-void myDecoderOutputCallback(void               *decompressionOutputRefCon,
-                             CFDictionaryRef    frameInfo,
-                             OSStatus           status, 
-                             uint32_t           infoFlags,
-                             CVImageBufferRef   imageBuffer){}
+void myDecoderOutputCallback(){}
 
 
 

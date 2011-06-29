@@ -48,7 +48,7 @@ int main (int argc, const char * argv[])
     CFNumberRef sourceFormat = NULL;
 
     
-    inAVCCData = CFDataCreate(kCFAllocatorDefault, avcC, sizeof(avcC)*sizeof(UInt8));
+    inAVCCData = CFDataCreate(kCFAllocatorDefault, avcC_subler, sizeof(avcC_subler)*sizeof(UInt8));
     
 
     // create a CFDictionary describing the source material for decoder configuration

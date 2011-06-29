@@ -1,5 +1,5 @@
 //
-//  main.cpp
+//  vdachecker.cpp
 //  VDADecoderChecker
 //
 //  Created by Andy Breuhan on 23.06.11.
@@ -13,28 +13,26 @@ using namespace std;
 #include <CoreVideo/CoreVideo.h>
 #include <VideoDecodeAcceleration/VDADecoder.h>
 
+//This array of "avcC Data" comes directly from an sample MP4 File.
+const UInt8 avcC[]        = { 0x00, 0x00, 0x00, 0x31, 0x61, 0x76, 0x63, 0x43, 0x01, 0x4D,
+                        0x40, 0x29, 0xFF, 0xE1, 0x00, 0x1A, 0x67, 0x4D, 0x40, 0x29,
+                        0x9A, 0x72, 0x80, 0xF0, 0x04, 0x2D, 0x80, 0x88, 0x00, 0x00,
+                        0x03, 0x00, 0x08, 0x00, 0x00, 0x03, 0x01, 0x94, 0x78, 0xC1,
+                        0x88, 0xB0, 0x01, 0x00, 0x04, 0x68, 0xEE, 0xBC, 0x80        };
 
+//This array of "avcC Data" is parsed and optimized by Subler, it comes from the same MP4 File.
+const UInt8 avcC_subler[] = { 0x01, 0x4d, 0x40, 0x29, 0x03, 0x01, 0x00, 0x1a, 0x67, 0x4d,
+                        0x40, 0x29, 0x9a, 0x72, 0x80, 0xf0, 0x04, 0x2d, 0x80, 0x88,
+                        0x00, 0x00, 0x03, 0x00, 0x08, 0x00, 0x00, 0x03, 0x01, 0x94,
+                        0x78, 0xc1, 0x88, 0xb0, 0x01, 0x00, 0x04, 0x68, 0xee, 0xbc,
+                        0x80                                                        };
+
+//Needed for a valid configuration
 void myDecoderOutputCallback();
-
+void myDecoderOutputCallback(){}
 
 int main (int argc, const char * argv[])
 {
-
-    
-    ifstream::pos_type size;
-    UInt8 *data;
-    ifstream file ("subler_avcC", ios::in|ios::binary|ios::ate);
-    if (file.is_open())
-    {
-        size = file.tellg();
-        data = new UInt8 [size];
-        file.seekg (0, ios::beg);
-        file.read ((char*) data, size);
-        file.close();
-        
-        cout << "Read " << size << " bytes\n";
-    }
-    else cout << "Unable to open file";
     
     OSStatus status;
     CFDataRef inAVCCData;
@@ -50,7 +48,7 @@ int main (int argc, const char * argv[])
     CFNumberRef sourceFormat = NULL;
 
     
-    inAVCCData = CFDataCreate(kCFAllocatorDefault, (const uint8_t*) data, (int)size);
+    inAVCCData = CFDataCreate(kCFAllocatorDefault, avcC, sizeof(avcC)*sizeof(UInt8));
     
 
     // create a CFDictionary describing the source material for decoder configuration
@@ -72,9 +70,6 @@ int main (int argc, const char * argv[])
 
     
     status = VDADecoderCreate(decoderConfiguration,NULL, (VDADecoderOutputCallback*) myDecoderOutputCallback, NULL, &decoderOut);
-    if (kVDADecoderNoErr != status) {
-        fprintf(stderr, "VDADecoderCreate failed. err: %d\n", status);
-    }
     switch (status) {
         case kVDADecoderNoErr:
             std::cout << "Hardware acceleration full supported" << "\n";
@@ -97,12 +92,13 @@ int main (int argc, const char * argv[])
             break;
     }
     
-    if (decoderConfiguration) CFRelease(decoderConfiguration);
-    //if(decoderOut!=NULL) VDADecoderDestroy(*decoderOut);
+    if(kVDADecoderNoErr != status) fprintf(stderr, "VDADecoderCreate failed. err: %d\n", status);
+    if(decoderConfiguration) CFRelease(decoderConfiguration);
+    if(inAVCCData) CFRelease(decoderConfiguration);
+    if(decoderOut) VDADecoderDestroy(decoderOut);
     return 0;
 }
 
-void myDecoderOutputCallback(){}
 
 
 

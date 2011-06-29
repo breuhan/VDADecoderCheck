@@ -23,7 +23,7 @@ Feel free to contribute on Github
 
 License
 -------
-UncutPodcast is released under the GNU General Public License V3. Please see
+VDADecoderChecker is released under the GNU General Public License V3. Please see
 [http://www.gnu.org/licenses/gpl-3.0.html](http://www.gnu.org/licenses/gpl-3.0.html) for further information.
 
 Known Issues

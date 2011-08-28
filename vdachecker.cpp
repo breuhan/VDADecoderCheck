@@ -93,10 +93,10 @@ int main (int argc, const char * argv[])
     }
     
     if(kVDADecoderNoErr != status) fprintf(stderr, "VDADecoderCreate failed. err: %d\n", status);
-    if(decoderConfiguration) CFRelease(decoderConfiguration);
-    if(inAVCCData) CFRelease(decoderConfiguration);
     if(decoderOut) VDADecoderDestroy(decoderOut);
-    return 0;
+    if(decoderConfiguration) CFRelease(decoderConfiguration);
+    if(inAVCCData) CFRelease(inAVCCData);
+    return 0; 
 }
 
 

@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0183448013B384A8001ECD5A /* vdachecker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0183447F13B384A8001ECD5A /* vdachecker.cpp */; };
 		0183448A13B3875E001ECD5A /* VideoDecodeAcceleration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0183448813B3874B001ECD5A /* VideoDecodeAcceleration.framework */; };
 		0183448C13B387C3001ECD5A /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0183448B13B387C3001ECD5A /* CoreFoundation.framework */; };
 		0183448E13B387C9001ECD5A /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0183448D13B387C9001ECD5A /* CoreVideo.framework */; };
+		EF9B47AD14F5CA6C000CB4DE /* VDADecoderChecker.c in Sources */ = {isa = PBXBuildFile; fileRef = EF9B47AC14F5CA6C000CB4DE /* VDADecoderChecker.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -36,11 +36,11 @@
 
 /* Begin PBXFileReference section */
 		0183447B13B384A8001ECD5A /* VDADecoderChecker */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = VDADecoderChecker; sourceTree = BUILT_PRODUCTS_DIR; };
-		0183447F13B384A8001ECD5A /* vdachecker.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = vdachecker.cpp; sourceTree = SOURCE_ROOT; };
 		0183448813B3874B001ECD5A /* VideoDecodeAcceleration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoDecodeAcceleration.framework; path = System/Library/Frameworks/VideoDecodeAcceleration.framework; sourceTree = SDKROOT; };
 		0183448B13B387C3001ECD5A /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		0183448D13B387C9001ECD5A /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		01C08D2B13B8AE800053ED14 /* README.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.markdown; sourceTree = SOURCE_ROOT; };
+		EF9B47AC14F5CA6C000CB4DE /* VDADecoderChecker.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = VDADecoderChecker.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,7 +60,7 @@
 		0183447013B384A8001ECD5A = {
 			isa = PBXGroup;
 			children = (
-				0183447F13B384A8001ECD5A /* vdachecker.cpp */,
+				EF9B47AC14F5CA6C000CB4DE /* VDADecoderChecker.c */,
 				01C08D2B13B8AE800053ED14 /* README.markdown */,
 				0183448D13B387C9001ECD5A /* CoreVideo.framework */,
 				0183448B13B387C3001ECD5A /* CoreFoundation.framework */,
@@ -103,6 +103,9 @@
 /* Begin PBXProject section */
 		0183447213B384A8001ECD5A /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
 			buildConfigurationList = 0183447513B384A8001ECD5A /* Build configuration list for PBXProject "VDADecoderChecker" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
@@ -125,7 +128,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0183448013B384A8001ECD5A /* vdachecker.cpp in Sources */,
+				EF9B47AD14F5CA6C000CB4DE /* VDADecoderChecker.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,7 +156,7 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = "";
+				MACOSX_DEPLOYMENT_TARGET = 10.5;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 			};
@@ -174,7 +177,8 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = "";
+				MACOSX_DEPLOYMENT_TARGET = 10.5;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 			};
 			name = Release;
@@ -182,6 +186,8 @@
 		0183448613B384A8001ECD5A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 			};
@@ -190,6 +196,9 @@
 		0183448713B384A8001ECD5A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 			};

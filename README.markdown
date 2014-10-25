@@ -3,7 +3,7 @@ README
 
 Downloads
 ---------
-* [VDADecoderChecker Binary](https://github.com/downloads/cylonbrain/VDADecoderCheck/VDADecoderChecker) - Download precompiled binary (Intel 64-Bit):
+* [VDADecoderChecker Binary (0.20)](https://github.com/cylonbrain/VDADecoderCheck/releases/download/0.20/VDADecoderChecker) - Download precompiled binary (Intel 64-Bit):
 
 Summary
 ----------

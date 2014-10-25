@@ -3,7 +3,7 @@ README
 
 Downloads
 ---------
-* [VDADecoderChecker Binary](https://github.com/downloads/cylonbrain/VDADecoderCheck/VDADecoderChecker) - Download precompiled binary (Intel 32/64-Bit):
+* [VDADecoderChecker Binary](https://github.com/downloads/cylonbrain/VDADecoderCheck/VDADecoderChecker) - Download precompiled binary (Intel 64-Bit):
 
 Summary
 ----------
@@ -18,6 +18,7 @@ GeForce 320M
 GeForce GT 330M
 ATI HD Radeon GFX
 Intel HD Graphics
+and newer
 
 Feel free to contribute on Github
 

@@ -1,4 +1,4 @@
-// VDADecoderChecker -- check the gerneral support of your graphics card to support h264 hardware accelerated decoding. 
+// VDADecoderChecker -- check the gerneral support of your graphics card to support h264 hardware accelerated decoding.
 // Copyright (C) 2011 - Andy Breuhan
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -55,7 +55,7 @@ typedef struct MyUserData
     myDisplayFramePtr displayQueue; // display-order queue - next display frame is always at the queue head
     int32_t           queueDepth; // we will try to keep the queue depth around 10 frames
     pthread_mutex_t   queueMutex; // mutex protecting queue manipulation
-    
+
 } MyUserData, *MyUserDataPtr;
 
 
@@ -67,59 +67,59 @@ OSStatus CreateDecoder(void)
 {
     CFDataRef inAVCCData;
     VDADecoder decoderOut = NULL;
-    
+
     OSType inSourceFormat='avc1';
     SInt32 inHeight = 1920;
     SInt32 inWidth = 1080;
-    
+
     inAVCCData = CFDataCreate(kCFAllocatorDefault, avcC_subler, sizeof(avcC_subler)*sizeof(UInt8));
-    
-    
+
+
     OSStatus status;
     MyUserData myUserData;
     CFMutableDictionaryRef decoderConfiguration = NULL;
     CFMutableDictionaryRef destinationImageBufferAttributes = NULL;
     CFDictionaryRef emptyDictionary;
-    
+
     CFNumberRef height = NULL;
     CFNumberRef width= NULL;
     CFNumberRef sourceFormat = NULL;
     CFNumberRef pixelFormat = NULL;
-    
-    
+
+
     // source must be H.264
     if (inSourceFormat != 'avc1') {
         fprintf(stderr, "Source format is not H.264!\n");
         return paramErr;
     }
-    
+
     // the avcC data chunk from the bitstream must be present
     if (inAVCCData == NULL) {
         fprintf(stderr, "avc1 decoder configuration data cannot be NULL!\n");
         return paramErr;
     }
-    
+
     // create a CFDictionary describing the source material for decoder configuration
     decoderConfiguration = CFDictionaryCreateMutable(kCFAllocatorDefault,
                                                      4,
                                                      &kCFTypeDictionaryKeyCallBacks,
                                                      &kCFTypeDictionaryValueCallBacks);
-    
+
     height = CFNumberCreate(kCFAllocatorDefault, kCFNumberSInt32Type, &inHeight);
     width = CFNumberCreate(kCFAllocatorDefault, kCFNumberSInt32Type, &inWidth);
     sourceFormat = CFNumberCreate(kCFAllocatorDefault, kCFNumberSInt32Type, &inSourceFormat);
-    
+
     CFDictionarySetValue(decoderConfiguration, kVDADecoderConfiguration_Height, height);
     CFDictionarySetValue(decoderConfiguration, kVDADecoderConfiguration_Width, width);
     CFDictionarySetValue(decoderConfiguration, kVDADecoderConfiguration_SourceFormat, sourceFormat);
     CFDictionarySetValue(decoderConfiguration, kVDADecoderConfiguration_avcCData, inAVCCData);
-    
+
     // create a CFDictionary describing the wanted destination image buffer
     destinationImageBufferAttributes = CFDictionaryCreateMutable(kCFAllocatorDefault,
                                                                  2,
                                                                  &kCFTypeDictionaryKeyCallBacks,
                                                                  &kCFTypeDictionaryValueCallBacks);
-    
+
     OSType cvPixelFormatType = kCVPixelFormatType_422YpCbCr8;
     pixelFormat = CFNumberCreate(kCFAllocatorDefault, kCFNumberSInt32Type, &cvPixelFormatType);
     emptyDictionary = CFDictionaryCreate(kCFAllocatorDefault, // our empty IOSurface properties dictionary
@@ -128,39 +128,38 @@ OSStatus CreateDecoder(void)
                                          0,
                                          &kCFTypeDictionaryKeyCallBacks,
                                          &kCFTypeDictionaryValueCallBacks);
-    
+
     CFDictionarySetValue(destinationImageBufferAttributes, kCVPixelBufferPixelFormatTypeKey, pixelFormat);
     CFDictionarySetValue(destinationImageBufferAttributes,
                          kCVPixelBufferIOSurfacePropertiesKey,
                          emptyDictionary);
-    
+
     // create the hardware decoder object
     status = VDADecoderCreate(decoderConfiguration,
                               destinationImageBufferAttributes,
                               (VDADecoderOutputCallback*)myDecoderOutputCallback,
                               (void *)&myUserData,
                               &decoderOut);
-    
+
     if (kVDADecoderNoErr != status) {
         fprintf(stderr, "VDADecoderCreate failed. err: %d\n", status);
     }
-    
-    if(decoderConfiguration) CFRelease(decoderConfiguration);
+
     if(destinationImageBufferAttributes) CFRelease(destinationImageBufferAttributes);
     if(emptyDictionary) CFRelease(emptyDictionary);
     if(decoderOut) VDADecoderDestroy(decoderOut);
     if(decoderConfiguration) CFRelease(decoderConfiguration);
     if(inAVCCData) CFRelease(inAVCCData);
-    
+
     return status;
 }
 
 int main (int argc, const char * argv[])
 {
-    
+
     OSStatus status;
     status = CreateDecoder();
-    
+
     switch (status) {
         case kVDADecoderNoErr:
             cout << "Hardware acceleration is fully supported" << "\n";
@@ -177,14 +176,14 @@ int main (int argc, const char * argv[])
         case -50:
             cout << "Parameter error" << "\n";
             break;
-            
+
         default:
             cout << "Unknown Status: " << status << "\n";
             break;
     }
-    
+
     if(kVDADecoderNoErr != status) fprintf(stderr, "VDADecoderCreate failed. err: %d\n", status);
-    
-    return 0; 
+
+    return 0;
 }
 

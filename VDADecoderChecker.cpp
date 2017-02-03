@@ -69,8 +69,8 @@ OSStatus CreateDecoder(void)
     VDADecoder decoderOut = NULL;
 
     OSType inSourceFormat='avc1';
-    SInt32 inHeight = 1920;
-    SInt32 inWidth = 1080;
+    SInt32 inHeight = 720;
+    SInt32 inWidth = 1280;
 
     inAVCCData = CFDataCreate(kCFAllocatorDefault, avcC_subler, sizeof(avcC_subler)*sizeof(UInt8));
 
